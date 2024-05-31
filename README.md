@@ -1,2 +1,2 @@
 # lampa_sync
-Sync timecode and mark for Lampa.
+Sync timecode and marks for Lampa.
