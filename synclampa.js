@@ -1,7 +1,7 @@
 (function () {
 
     'use strict';
-    function log_sync(type,) {
+    function log_sync(type) {
         var activity = Lampa.Storage.get('activity', '{}');
         var card = activity.movie || activity.card || activity.component; 
         console.log('SYNC', type, card.name);
