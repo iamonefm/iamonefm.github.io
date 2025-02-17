@@ -47,6 +47,7 @@
             grid-template-columns: repeat(8, 1fr);
             gap: 10px;
             justify-items: center;
+            position: relative;
             }
             .ani_svg {
             width: 50%;
