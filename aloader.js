@@ -158,9 +158,10 @@
         let ani_teplates = Lampa.Template.get('ani_modal', {
           ani_svg_content: svg_content
         });
+        //  size: 'large',
         Lampa.Modal.open({
           title: 'Animation loaded',
-          size: 'large',
+         
           html: ani_teplates,
           onBack: () => {
             Lampa.Modal.close()
