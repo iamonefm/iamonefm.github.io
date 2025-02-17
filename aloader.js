@@ -47,7 +47,6 @@
             grid-template-columns: repeat(8, 1fr);
             gap: 10px;
             justify-items: center;
-            width: revert;
             }
             .ani_svg {
             width: 50%;
@@ -163,6 +162,8 @@
         Lampa.Modal.open({
           title: 'Animation loaded',
           size: 'medium',
+          align: 'center',
+          zIndex: 300,
           html: ani_teplates,
           onBack: () => {
             Lampa.Modal.close()
