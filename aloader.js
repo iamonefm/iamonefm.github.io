@@ -89,19 +89,16 @@
           }
       `;
     document.head.appendChild(activity_loader_style);
-    console.log('***', 'Лоадер изменен на ', src);
+    // console.log('***', 'Лоадер изменен на ', src);
   }
 
   function remove_activity_loader() {
-    // Находим элемент <style> с id "aniload"
     let styleElement = document.getElementById('aniload_activity__loader');
-    // Проверяем, существует ли такой элемент
     if (styleElement) {
-      // Удаляем элемент
       styleElement.remove();
-      console.log('***', 'Элемент <style> с id "aniload_activity__loader" удален.');
+      // console.log('***', 'Элемент <style> с id "aniload_activity__loader" удален.');
     } else {
-      console.log('***', 'Элемент <style> с id "aniload_activity__loader" не найден.');
+      // console.log('***', 'Элемент <style> с id "aniload_activity__loader" не найден.');
     }
   }
 
