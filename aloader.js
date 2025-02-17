@@ -48,6 +48,8 @@
             gap: 10px;
             justify-items: center;
             position: relative;
+            width: 100%;
+            height: 300px;
             }
             .ani_svg {
             width: 50%;
