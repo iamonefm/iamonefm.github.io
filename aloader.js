@@ -161,7 +161,7 @@
         //  size: 'large',
         Lampa.Modal.open({
           title: 'Animation loaded',
-          zIndex: 300,
+          size: 'medium',
           html: ani_teplates,
           onBack: () => {
             Lampa.Modal.close()
