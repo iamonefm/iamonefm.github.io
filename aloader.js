@@ -51,18 +51,24 @@
             width: 100%;
             height: 300px;
             }
-            .ani_svg {
-            width: 50%;
+  .ani_svg {
+            width: 60%;
             height: auto;
+            display: grid;
+            align-items: center;
           }
-          .ani_svg img {
+  .ani_svg img {
             width: 100%;
-            height: 100%;
+            height: auto;
+            object-fit: cover;
           }
-          .ani_svg.focus {
+  .ani_svg.focus {
             background-color: #353535;
+            justify-content: center;
+            align-items: center;OB
           }
     `;
+
   document.head.appendChild(style);
 
   function insert_activity_loader(src) {
