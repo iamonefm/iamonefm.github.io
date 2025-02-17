@@ -74,7 +74,7 @@
               height: 100%;
               display: none;
               background: url(${src}) no-repeat 50% 50%;
-              zoom: 2;
+              zoom: 3;
           }
           .activity__loader_prv {
               position: absolute;
