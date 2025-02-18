@@ -65,7 +65,7 @@
   .ani_svg.focus {
             background-color: #353535;
             justify-content: center;
-            align-items: center;OB
+            align-items: center;
           }
     `;
 
