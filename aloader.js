@@ -1,4 +1,3 @@
-//import * as Lampa from './app_main.js';
 (function () {
   'use strict';
 
@@ -92,8 +91,8 @@
               width: 145%;
               height: 86%;
               background: url(${src}) no-repeat 50% 50%;
-              /* background-size: contain; Чтобы картинка вписывалась в блок */
-              z-index: 9999; /* Убедитесь, что блок будет поверх других элементов */
+              /* background-size: contain;  */
+              z-index: 9999; 
               /*zoom: 2;*/
           }
       `;
