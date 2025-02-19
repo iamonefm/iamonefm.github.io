@@ -1,0 +1,50 @@
+<svg width="200" height="200" xmlns="http://www.w3.org/2000/svg" style="background-color: black;">
+  <!-- Точка 1 -->
+  <circle cx="30" cy="30" r="3" fill="white">
+    <animate attributeName="cx" values="30;100;150;30" dur="3s" repeatCount="indefinite" />
+    <animate attributeName="cy" values="30;150;100;30" dur="4s" repeatCount="indefinite" />
+    <animate attributeName="opacity" values="0;1;0.5;1;0" dur="2s" repeatCount="indefinite" />
+  </circle>
+
+  <!-- Точка 2 -->
+  <circle cx="100" cy="50" r="3" fill="white">
+    <animate attributeName="cx" values="100;150;50;100" dur="5s" repeatCount="indefinite" />
+    <animate attributeName="cy" values="50;100;150;50" dur="3s" repeatCount="indefinite" />
+    <animate attributeName="opacity" values="1;0;0.5;1;0" dur="1.5s" repeatCount="indefinite" />
+  </circle>
+
+  <!-- Точка 3 -->
+  <circle cx="150" cy="100" r="3" fill="white">
+    <animate attributeName="cx" values="150;50;100;150" dur="4s" repeatCount="indefinite" />
+    <animate attributeName="cy" values="100;50;150;100" dur="2s" repeatCount="indefinite" />
+    <animate attributeName="opacity" values="0.5;1;0;1;0.5" dur="2.5s" repeatCount="indefinite" />
+  </circle>
+
+  <!-- Точка 4 -->
+  <circle cx="50" cy="150" r="3" fill="white">
+    <animate attributeName="cx" values="50;100;150;50" dur="3s" repeatCount="indefinite" />
+    <animate attributeName="cy" values="150;50;100;150" dur="4s" repeatCount="indefinite" />
+    <animate attributeName="opacity" values="0;1;0.5;1;0" dur="2s" repeatCount="indefinite" />
+  </circle>
+
+  <!-- Точка 5 -->
+  <circle cx="80" cy="80" r="3" fill="white">
+    <animate attributeName="cx" values="80;120;40;80" dur="3.5s" repeatCount="indefinite" />
+    <animate attributeName="cy" values="80;40;120;80" dur="2.5s" repeatCount="indefinite" />
+    <animate attributeName="opacity" values="1;0;0.5;1;0" dur="1.8s" repeatCount="indefinite" />
+  </circle>
+
+  <!-- Точка 6 -->
+  <circle cx="120" cy="120" r="3" fill="white">
+    <animate attributeName="cx" values="120;40;80;120" dur="4.2s" repeatCount="indefinite" />
+    <animate attributeName="cy" values="120;80;40;120" dur="3.2s" repeatCount="indefinite" />
+    <animate attributeName="opacity" values="0.5;1;0;1;0.5" dur="2.2s" repeatCount="indefinite" />
+  </circle>
+
+  <!-- Точка 7 -->
+  <circle cx="60" cy="60" r="3" fill="white">
+    <animate attributeName="cx" values="60;100;140;60" dur="3.8s" repeatCount="indefinite" />
+    <animate attributeName="cy" values="60;140;100;60" dur="2.8s" repeatCount="indefinite" />
+    <animate attributeName="opacity" values="0;1;0.5;1;0" dur="1.7s" repeatCount="indefinite" />
+  </circle>
+</svg>
