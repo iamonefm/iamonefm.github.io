@@ -2,6 +2,7 @@
   'use strict';
 
   let svg_links = [
+    'https://raw.githubusercontent.com/iamonefm/iamonefm.github.io/refs/heads/main/dots.svg',
     'https://raw.githubusercontent.com/n3r4zzurr0/svg-spinners/main/preview/90-ring-white-36.svg',
     'https://raw.githubusercontent.com/n3r4zzurr0/svg-spinners/main/preview/90-ring-with-bg-white-36.svg',
     'https://raw.githubusercontent.com/n3r4zzurr0/svg-spinners/main/preview/180-ring-white-36.svg',
