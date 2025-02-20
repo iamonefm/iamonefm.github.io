@@ -128,7 +128,7 @@
       for (let i = 0; i < arr.length; i += size) {
           result.push(arr.slice(i, i + size));
       }
-      console.log('***', result);
+      // console.log('***', result);
       return result;
     }
 
@@ -173,7 +173,6 @@
       // },
 
       onChange: function (item) {
-        
         const groupedSvgLinks = chunkArray(svg_links, 7);
         let svg_content = groupedSvgLinks.map(group => {
             const groupContent = group.map(createSvgHtml).join('');
@@ -203,7 +202,7 @@
                 // console.log('*** src:', srcValue); // Выводим значение src
                 Lampa.Storage.set("ani_load", srcValue);
                 // window.location.reload();
-                console.log('****', 'item-render-back:', a);
+                // console.log('****', 'item-render-back:', a);
                 remove_activity_loader();
                 insert_activity_loader(Lampa.Storage.get("ani_load"));
               } else {
