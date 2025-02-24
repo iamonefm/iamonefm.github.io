@@ -10,3 +10,8 @@ A server part is required.
 Changes the content preloading animation.
 
 Изменяет анимацию предзагрузки контента.
+___
+connect string \ строка подключения.
+```
+ https://iamonefm.github.io/aloader.js
+```
