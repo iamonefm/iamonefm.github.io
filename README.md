@@ -2,7 +2,7 @@
 Synchronization of time codes and marks for the Lampa engine [yumata / lampa](https://github.com/yumata/lampa). 
 A server part is required.
 
-Синхронизация таймкодов и марок для Lampa [yumata / lampa](https://github.com/yumata/lampa.
+Синхронизация таймкодов и марок для Lampa [yumata / lampa](https://github.com/yumata/lampa).
 Требуется серверная часть.
 
 
