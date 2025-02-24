@@ -1,3 +1,12 @@
-# lampa_sync
-Sync timecode and marks for Lampa.
-Changing loader animation
+# synclampa.js
+Synchronization of time codes and marks for the Lampa engine [yumata / lampa](https://github.com/yumata/lampa). 
+A server part is required.
+
+Синхронизация таймкодов и марок для Lampa [yumata / lampa](https://github.com/yumata/lampa.
+Требуется серверная чать.
+
+
+# aloader.js
+Changes the content preloading animation.
+
+Изменяет анимацию предзагрузки контента.
