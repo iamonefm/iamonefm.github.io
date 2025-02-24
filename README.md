@@ -3,7 +3,7 @@ Synchronization of time codes and marks for the Lampa engine [yumata / lampa](ht
 A server part is required.
 
 Синхронизация таймкодов и марок для Lampa [yumata / lampa](https://github.com/yumata/lampa.
-Требуется серверная чать.
+Требуется серверная часть.
 
 
 # aloader.js
