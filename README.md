@@ -14,7 +14,4 @@ Changes the content preloading animation.
 <img src="https://iamonefm.github.io/cast.png" width="500">
 
 ___
-connect string \ строка подключения.
-```
- https://iamonefm.github.io/aloader.js
-```
+
