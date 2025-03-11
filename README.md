@@ -10,6 +10,9 @@ A server part is required.
 Changes the content preloading animation.
 
 Изменяет анимацию предзагрузки контента.
+
+<img src="https://iamonefm.github.io/cast.png" width="500">
+
 ___
 connect string \ строка подключения.
 ```
