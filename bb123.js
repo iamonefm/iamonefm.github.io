@@ -7,8 +7,7 @@
         .items-line--type-top .items-cards .card:nth-child(3) {
           margin-left: 1em !important;
         }
-      
-        /* Убираем цифры (псевдоэлементы ::before) */
+
         .items-line--type-top .items-cards .card:nth-child(1)::before,
         .items-line--type-top .items-cards .card:nth-child(2)::before,
         .items-line--type-top .items-cards .card:nth-child(3)::before {
