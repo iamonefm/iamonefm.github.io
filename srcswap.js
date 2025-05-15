@@ -11,31 +11,25 @@
         `);
 
         function updateActivitySource(newSource) {
+
             const STORAGE_KEY = 'activity';
-
+            
             try {
+                const activity = JSON.parse(localStorage.getItem(STORAGE_KEY) || {});
+                
+                if (!activity.source) {
 
-                const rawData = localStorage.getItem(STORAGE_KEY);
-                if (!rawData) {
-                    console.warn(`Ключ ${STORAGE_KEY} не найден в localStorage`);
+                    console.log('Swap_src', 'Объект activity не содержит свойство source');
                     return false;
                 }
 
-                const activity = JSON.parse(rawData);
-                if (!activity || typeof activity !== 'object') {
-                    throw new Error('Данные не являются объектом');
-                }
-
-                const oldSource = activity.source;
                 activity.source = newSource;
-
                 localStorage.setItem(STORAGE_KEY, JSON.stringify(activity));
-
-                // console.log(`Source изменён с "${oldSource}" на "${newSource}"`);
                 return true;
-
+                
             } catch (error) {
-                console.error('Ошибка при обновлении activity:', error);
+
+                console.log('Swap_src', 'Ошибка при обновлении activity:', error);
                 return false;
             }
         }
@@ -55,14 +49,12 @@
             const srcElement = searchElement.nextElementSibling;
 
             function swap_src() {
+
                 const srcList = Lampa.Params.values['source'];
                 const currentSource = Lampa.Storage.get('source');
-
                 const src_Content = Object.entries(srcList)
                     .map(([key, name]) => {
-                        
                         const isActive = key === currentSource ? 'active' : '';
-
                         return `
                     <div class="src_item selector navigation-tabs__button ${isActive}" data-src="${key}">
                         ${name}
@@ -72,15 +64,17 @@
                     .join('');
 
                 const src_render_templates = Lampa.Template.get('src', {
+
                     src_tmp_Content: src_Content
                 });
 
                 Lampa.Modal.open({
                     title: '',
+                    select: src_render_templates.find('.navigation-tabs__button.active')[0],
                     html: src_render_templates,
                     onBack: function onBack() {
-                        Lampa.Modal.close();
 
+                        Lampa.Modal.close();
                         Lampa.Controller.toggle('content');
                     },
                     onSelect: function onSelect(a) {
@@ -90,19 +84,16 @@
                         updateActivitySource(src_swap);
 
                         Lampa.Modal.close();
-
                         try {
-                            const { url, source, title, component } = Lampa.Storage.get('activity') || {};
-
                             Lampa.Activity.push({
-                                url: url,
-                                title: Lampa.Lang.translate('menu_movies') + ' - ' + Lampa.Storage.get('source').toUpperCase(),
-                                component: component,
+                                url: '',
+                                title: Lampa.Lang.translate('title_main') + ' - ' + Lampa.Storage.get('source').toUpperCase(),
+                                component: 'main',
                                 source: src_swap
                             });
 
                         } catch (e) {
-                            console.error('Ошибка чтения storage:', e);
+                            console.log('Swap_src', 'Ошибка чтения storage: ', e);
                         }
 
                     }
@@ -112,9 +103,9 @@
             $(srcElement).on('hover:enter', swap_src);
 
         } else {
-            console.error('Элемент .open--search не найден!');
-        }
 
+            console.log('Swap_src', 'Элемент .open--search не найден!');
+        }
     }
 
     if (window.appready) {
