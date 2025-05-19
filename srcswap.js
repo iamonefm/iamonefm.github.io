@@ -1,7 +1,18 @@
 (function () {
     'use strict';
     function srcswp(src) {
-        
+        const originalFunc = Lampa.ParentalControl.personal;
+        Lampa.ParentalControl.personal = function(...args) {
+            
+            const result = originalFunc.apply(this, args);
+            
+            setTimeout(() => {
+                $('[data-component="plugins"]').insertAfter('[data-component="account"]');
+            }, 50);
+            
+            return result;
+        };
+
         Lampa.Template.add('src', `
         <div class="src_modal_root">
         <div class="src_grid">
