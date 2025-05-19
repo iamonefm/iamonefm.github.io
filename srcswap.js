@@ -1,19 +1,6 @@
 (function () {
     'use strict';
     function srcswp(src) {
-        const originalFunc = Lampa.ParentalControl.personal;
-        Lampa.ParentalControl.personal = function(...args) {
-            
-            const result = originalFunc.apply(this, args);
-            
-            setTimeout(() => {
-                const $parent = $('[data-component="plugins"]').parent();
-                $('[data-component="plugins"]').prependTo($parent);
-                
-            }, 50);
-            
-            return result;
-        };
 
         Lampa.Template.add('src', `
         <div class="src_modal_root">
