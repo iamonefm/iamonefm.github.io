@@ -7,7 +7,9 @@
             const result = originalFunc.apply(this, args);
             
             setTimeout(() => {
-                $('[data-component="plugins"]').insertBefore('[data-component="interface"]');
+                const $parent = $('[data-component="plugins"]').parent();
+                $('[data-component="plugins"]').prependTo($parent);
+                
             }, 50);
             
             return result;
