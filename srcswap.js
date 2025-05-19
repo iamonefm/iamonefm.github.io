@@ -7,7 +7,7 @@
             const result = originalFunc.apply(this, args);
             
             setTimeout(() => {
-                $('[data-component="plugins"]').insertAfter('[data-component="account"]');
+                $('[data-component="plugins"]').insertBefore('[data-component="interface"]');
             }, 50);
             
             return result;
