@@ -11,7 +11,7 @@
         `);
 
         function updateActivitySource(newSource) {
-
+            $('[data-component="plugins"]').insertAfter('[data-component="account"]'); // move up plugins in settings-folder - request Ruslan>0>1
             const STORAGE_KEY = 'activity';
             
             try {
