@@ -1,7 +1,7 @@
 (function () {
     'use strict';
     function srcswp(src) {
-
+        $('[data-component="plugins"]').insertAfter('[data-component="account"]'); // move up plugins in settings-folder - request Ruslan>0>1
         Lampa.Template.add('src', `
         <div class="src_modal_root">
         <div class="src_grid">
@@ -11,7 +11,7 @@
         `);
 
         function updateActivitySource(newSource) {
-            $('[data-component="plugins"]').insertAfter('[data-component="account"]'); // move up plugins in settings-folder - request Ruslan>0>1
+            
             const STORAGE_KEY = 'activity';
             
             try {
