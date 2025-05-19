@@ -9,8 +9,10 @@
         
         setTimeout(() => {
             const $parent = $('[data-component="plugins"]').parent();
-            const $firstChild = $parent.children().first();
-            $('[data-component="plugins"]').insertAfter($firstChild);
+            $('[data-component="plugins"]').prependTo($parent);
+            // const $parent = $('[data-component="plugins"]').parent();
+            // const $firstChild = $parent.children().first();
+            // $('[data-component="plugins"]').insertAfter($firstChild);
         }, 50);
         
         return result;
