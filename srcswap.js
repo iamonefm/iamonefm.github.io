@@ -47,7 +47,7 @@
             }
         }
 
-        const searchElement = document.querySelector('.head__action.head__settings.selector.open--search');
+        const searchElement = document.querySelector('.head__action.selector.open--settings');
 
         if (searchElement) {
             searchElement.insertAdjacentHTML('afterend', `
