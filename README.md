@@ -16,6 +16,6 @@ Changes the content preloading animation.
 ___
 
 # bb123.js
-Убирает 1 2 3 в катрочках "Огонь" \ "ТОП" \ "С высоким рейтингом" \ и т.д 
+Убирает 1 2 3 в карточках "Огонь" \ "ТОП" \ "С высоким рейтингом" \ и т.д 
 
 <img src="https://iamonefm.github.io/img/af_bf_640.png" width="500">
