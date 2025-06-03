@@ -9,7 +9,7 @@
             en: 'Enable'
         },
         params_ani_select: {
-            ru: 'Выключить',
+            ru: 'Выбор анимации',
             en: 'Select loading animation'
         },
         params_ani_name: {
