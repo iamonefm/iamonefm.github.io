@@ -239,14 +239,14 @@
             var newStyle_activity_loader = `
                 .activity__loader {
                     background: url('${escapedUrl}') no-repeat 50% 50% !important;
-                    scale: 1.9;
+                    scale: 3;
                 }
             `;
         } else {
             var newStyle_activity_loader = `
                 .activity__loader {
                     background: url('${escapedUrl}') no-repeat 50% 50% !important;
-                    scale: 1.9;
+                    scale: 3;
                     filter: ${hexToCssFilter(filter)};
                 }
             `;
