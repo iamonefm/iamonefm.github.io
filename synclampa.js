@@ -73,29 +73,42 @@
                 }
                 return name;
             }
-        }, {
+         }, 
+                                          {
+            key: "isEnabled", value: function isEnabled() {
+                var switcher = Lampa.Storage.get('sync_ext_switcher');
+                var address = Lampa.Storage.get('sync_ext_address');
+                return (switcher === true || switcher === 'true') && Boolean(address);
+            }
+        },
+        {
             key: "update", value: function update() {
-                var _this2 = this; var url = this.url('all');
-                this.network.silent(url, 
+                if (!this.isEnabled()) return;
+                var _this2 = this;
+                var url = this.url('all');
+                this.network.silent(url,
                     function (result) {
-                    if (result.accsdb) return;
-                    var viewed = Lampa.Storage.cache(_this2.filename(), 10000, {});
-                    for (var i in result) {
-                        if (!Lampa.Arrays.isObject(result[i])) continue;
-                        viewed[i] = result[i];
-                        Lampa.Arrays.extend(viewed[i], { duration: 0, time: 0, percent: 0 });
-                        delete viewed[i].hash;
-                    }
-                    Lampa.Storage.set(_this2.filename(), viewed, true);
-                    Lampa.Storage.set("file_view", viewed, true);
-                    log_sync(' Get timecode ');
+                        if (result.accsdb) return;
+                        var viewed = Lampa.Storage.cache(_this2.filename(), 10000, {});
+                        for (var i in result) {
+                            if (!Lampa.Arrays.isObject(result[i])) continue;
+                            viewed[i] = result[i];
+                            Lampa.Arrays.extend(viewed[i], { duration: 0, time: 0, percent: 0 });
+                            delete viewed[i].hash;
+                        }
+                        Lampa.Storage.set(_this2.filename(), viewed, true);
+                        Lampa.Storage.set("file_view", viewed, true);
+                        log_sync(' Get timecode ');
                     },
-                    log_sync(' Error Get timecode ')
+                    function () {
+                        log_sync(' Error Get timecode ');
+                    }
                 );
             }
         },
         {
             key: "add", value: function add(e) {
+                if (!this.isEnabled()) return;
                 var url = this.url('add');
                 this.network.silent(url, false, false, { id: e.data.hash, data: JSON.stringify(e.data.road) });
                 log_sync(' Add timecode ');
@@ -103,23 +116,25 @@
         },
         {
             key: "mark", value: function mark(e) {
+                if (!this.isEnabled()) return;
                 var url = this.url('mark');
-                this.network.silent(url, 
+                this.network.silent(url,
                     function () {
                         stsus_sync_profile_icon('#93d46d');
-                    }, 
+                    },
                     function () {
                         stsus_sync_profile_icon('red');
                     },
-                    { id: this.card_id, data: JSON.stringify(e.value) });
+                    { id: this.card_id, data: JSON.stringify(e.value) }
+                );
                 log_sync(' Post Marks ');
             }
-        }
-            , {
+        },
+        {
             key: "update_mark", value: function update_mark() {
-                // Lampa.Storage.set("online_view", [], true);
+                if (!this.isEnabled()) return;
                 var url = this.url('mark');
-                this.network.silent(url, 
+                this.network.silent(url,
                     function (result) {
                         if (result.accsdb) return;
                         Lampa.Storage.set("online_view_ext", result, true);
@@ -133,27 +148,111 @@
                 );
             }
         }
+
+        // {
+        //     key: "update", value: function update() {
+        //         var _this2 = this; var url = this.url('all');
+        //         this.network.silent(url, 
+        //             function (result) {
+        //             if (result.accsdb) return;
+        //             var viewed = Lampa.Storage.cache(_this2.filename(), 10000, {});
+        //             for (var i in result) {
+        //                 if (!Lampa.Arrays.isObject(result[i])) continue;
+        //                 viewed[i] = result[i];
+        //                 Lampa.Arrays.extend(viewed[i], { duration: 0, time: 0, percent: 0 });
+        //                 delete viewed[i].hash;
+        //             }
+        //             Lampa.Storage.set(_this2.filename(), viewed, true);
+        //             Lampa.Storage.set("file_view", viewed, true);
+        //             log_sync(' Get timecode ');
+        //             },
+        //             log_sync(' Error Get timecode ')
+        //         );
+        //     }
+        // },
+        // {
+        //     key: "add", value: function add(e) {
+        //         var url = this.url('add');
+        //         this.network.silent(url, false, false, { id: e.data.hash, data: JSON.stringify(e.data.road) });
+        //         log_sync(' Add timecode ');
+        //     }
+        // },
+        // {
+        //     key: "mark", value: function mark(e) {
+        //         var url = this.url('mark');
+        //         this.network.silent(url, 
+        //             function () {
+        //                 stsus_sync_profile_icon('#93d46d');
+        //             }, 
+        //             function () {
+        //                 stsus_sync_profile_icon('red');
+        //             },
+        //             { id: this.card_id, data: JSON.stringify(e.value) });
+        //         log_sync(' Post Marks ');
+        //     }
+        // }
+        //     , {
+        //     key: "update_mark", value: function update_mark() {
+        //         // Lampa.Storage.set("online_view", [], true);
+        //         var url = this.url('mark');
+        //         this.network.silent(url, 
+        //             function (result) {
+        //                 if (result.accsdb) return;
+        //                 Lampa.Storage.set("online_view_ext", result, true);
+        //                 Lampa.Storage.set("online_view", result, true);
+        //                 log_sync(' Get Marks ');
+        //                 stsus_sync_profile_icon('#93d46d');
+        //             },
+        //             function () {
+        //                 stsus_sync_profile_icon('red');
+        //             }
+        //         );
+        //     }
+        // }
         ]);
         return Timecode;
     }();
 //*****************************************************************************************************************
-    function stsus_sync_profile_icon (color){
+    // function stsus_sync_profile_icon (color){
+    //     $(document).ready(function () {
+    //         // var color = value;//'#93d46d'
+    //         var css = `.noticesync.active::after 
+    //         { content: ""; display: block; width: 0.5em; height: 0.5em; left: 0; bottom: 0; margin-top: 60%;
+    //         position: absolute; background-color: ${color}; 
+    //         border: 0.15em solid #fff; 
+    //         border-radius: 100%;}`;
+    //         $("<style>")
+    //             .prop("type", "text/css")
+    //             .html(css)
+    //             .appendTo("head");
+    //     }); 
+    //         $("#app .head .head__actions .head__action.selector.open--profile").addClass("noticesync");
+    //         $("#app .head .head__actions .head__action.selector.open--profile").addClass("active");
+    //     // console.log('SYNC', 'status sync for profile icon');
+    // }
+        function stsus_sync_profile_icon(color) {
         $(document).ready(function () {
-            // var color = value;//'#93d46d'
-            var css = `.noticesync.active::after 
-            { content: ""; display: block; width: 0.5em; height: 0.5em; left: 0; bottom: 0; margin-top: 60%;
-            position: absolute; background-color: ${color}; 
-            border: 0.15em solid #fff; 
-            border-radius: 100%;}`;
-            $("<style>")
-                .prop("type", "text/css")
-                .html(css)
-                .appendTo("head");
-        }); 
-            $("#app .head .head__actions .head__action.selector.open--profile").addClass("noticesync");
-            $("#app .head .head__actions .head__action.selector.open--profile").addClass("active");
-        // console.log('SYNC', 'status sync for profile icon');
+            var css = '.noticesync.active::after {' +
+                'content: ""; display: block; width: 0.5em; height: 0.5em; left: 0; bottom: 0; margin-top: 60%;' +
+                'position: absolute; background-color: ' + color + ';' +
+                'border: 0.15em solid #fff;' +
+                'border-radius: 100%;' +
+                '}';
+
+            var styleTag = $('#noticesync-style');
+            if (styleTag.length) {
+                styleTag.html(css);
+            } else {
+                $('<style id="noticesync-style" type="text/css">')
+                    .html(css)
+                    .appendTo('head');
+            }
+
+            var profileBtn = $('#app .head .head__actions .head__action.selector.open--profile');
+            profileBtn.addClass('noticesync active');
+        });
     }
+
     function syncExt() {
         // stsus_sync_profile_icon ('#93d46d');
         var sync = Lampa.Storage.get('sync_ext_switcher');
